@@ -67,7 +67,6 @@ function appendToInput(value) {
     const currentInput = document.getElementById('current-input');
     const validRomanChars = ['I', 'V', 'X', 'L', 'C', 'D', 'M'];
     
-    // Prevent excessive length
     if (currentInput.textContent.length >= 15) {
         currentInput.textContent = 'Too Long';
         setTimeout(() => {
@@ -77,7 +76,6 @@ function appendToInput(value) {
     }
 
     if (validRomanChars.includes(value.toUpperCase())) {
-        // Add subtle sound feedback
         playKeySound();
         currentInput.textContent += value.toUpperCase();
     }
@@ -141,7 +139,6 @@ function calculate() {
     }
 }
 
-// Soft sound feedback for button presses
 function playKeySound() {
     try {
         const audioContext = new (window.AudioContext || window.webkitAudioContext)();
@@ -158,37 +155,30 @@ function playKeySound() {
         oscillator.start();
         oscillator.stop(audioContext.currentTime + 0.05);
     } catch (error) {
-        // Fallback if Web Audio API is not supported
         console.log('Audio feedback not available');
     }
 }
 
-// Add keyboard support
 function handleKeyboardInput(event) {
     const key = event.key.toUpperCase();
     const validRomanChars = ['I', 'V', 'X', 'L', 'C', 'D', 'M'];
     const operationKeys = {'+': '+', '-': '-', '*': 'x'};
 
-    // Roman numeral input
     if (validRomanChars.includes(key)) {
         appendToInput(key);
     }
     
-    // Operation keys
     if (operationKeys[key] || key === '*') {
         setOperation(key === '*' ? '*' : key);
     }
 
-    // Calculation keys
     if (key === 'ENTER' || key === '=') {
         calculate();
     }
 
-    // Clear key
     if (key === 'BACKSPACE' || key === 'DELETE') {
         clearInput();
     }
 }
 
-// Add event listener for keyboard input
 document.addEventListener('keydown', handleKeyboardInput);
