@@ -1,0 +1,37 @@
+<html lang="en"><head>
+    <meta charset="UTF-8">
+    <title>Cyber Roman Calculator</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&amp;display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Cyber Roman Numeral Calculator - Sleek and Futuristic">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧮</text></svg>">
+</head>
+<body>
+    <div class="calculator-container">
+        <div class="calculator">
+            <div class="display">
+                <div id="previous-calculation" class="previous-calculation"></div>
+                <div id="current-input" class="current-input"></div>
+            </div>
+            <div class="buttons">
+                <button onclick="appendToInput('I')" class="roman-btn">I</button>
+                <button onclick="appendToInput('V')" class="roman-btn">V</button>
+                <button onclick="appendToInput('X')" class="roman-btn">X</button>
+                <button onclick="clearInput()" class="clear-btn">C</button>
+                
+                <button onclick="appendToInput('L')" class="roman-btn">L</button>
+                <button onclick="appendToInput('C')" class="roman-btn">C</button>
+                <button onclick="appendToInput('D')" class="roman-btn">D</button>
+                <button onclick="setOperation('+')" class="operator-btn">+</button>
+                
+                <button onclick="appendToInput('M')" class="roman-btn">M</button>
+                <button onclick="setOperation('-')" class="operator-btn">-</button>
+                <button onclick="setOperation('*')" class="operator-btn">×</button>
+                <button onclick="calculate()" class="equals-btn">=</button>
+            </div>
+        </div>
+    </div>
+    <script src="calculator.js"></script>
+
+</body></html>
